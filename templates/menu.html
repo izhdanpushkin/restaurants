@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+    <title>Restaurant's menu</title>
+</head>
+<body>
+    <h1>Menu for the restaurant '{{restaurant.name}}':</h1>
+    <a class="back" href="{{url_for('showRestaurants')}}">Back to restaurants list</a><br>
+    <a class="create" href="{{url_for('newMenuItem', restaurant_id = restaurant.id)}}">Create new menu item</a>
+    <br><br>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes style="padding: 0px 0px 25px 10px;">
+            {% for message in messages %}
+                <li><strong>{{ message }}</strong></li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    {% if not items %}
+        <p>Looks like there's nothing here yet.</p>
+    {% endif %}
+    {% for e in items %}
+        <p><strong>Name: {{e.name}}</strong></p>
+        <p>Price: {{e.price}}</p>
+        <p>Description: {{e.description}}</p>
+        <p>Course: {{e.course}}</p>
+
+
+        <a class="edit" href="{{url_for('editMenuItem', menu_id = e.id, restaurant_id = restaurant.id)}}">Edit</a>
+        <a class="edit" href="{{url_for('deleteMenuItem', menu_id = e.id, restaurant_id = restaurant.id)}}">Delete</a>
+        <br><br>
+    {% endfor %}
+    <br><br>
+    <a class="back" href="{{url_for('deleteRestaurant', restaurant_id = restaurant.id)}}">Delete this restaurant</a>
+</body>
+</html>

@@ -1,0 +1,56 @@
+body {
+    background-color: #fafafa;
+    padding: 0px 50px 0px 50px;
+    color: #444;
+    width: max-content;
+}
+h1 {
+    margin-bottom: 10px;
+}
+h4 {
+    font-size: 1.2em;
+}
+a {
+    display: inline-block;
+}
+.item {
+    color: #666;
+    font-size: 26px;
+    text-decoration: none;
+}
+.edit {
+    color: #999;
+    text-transform: capitalize;
+}
+.back {
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+.create {
+    color: #333;
+    font-size: 20px;
+    text-decoration: none;
+}
+.confirm {
+    margin-bottom: 10px;
+}
+.confirm input {
+    width: 8em;
+}
+.list {
+    width: max-content;
+}
+.list div {
+    display: flex;
+    align-items: center;
+    height: 3em;
+}
+.list h4 {
+    width: 6em;
+}
+.list .button {
+    width: 100%;
+    margin-top: 1em;
+}
